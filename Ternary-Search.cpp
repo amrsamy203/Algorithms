@@ -41,3 +41,19 @@ double ts(double l, double r) {
     }
     return func(l);
 }
+// return min
+double ternary_search(double l, double r) {
+    //double eps = 1e-9;
+    for(int i = 0; i < 100; i++) {
+        double m1 = l + (r - l) / 3;
+        double m2 = r - (r - l) / 3;
+        double f1 = f(m1);
+        double f2 = f(m2);
+        //ans = min(ans, min(f1, f2));
+        if (f1 < f2)
+            r = m2;
+        else
+            l = m1;
+    }
+    return f(r);
+}
